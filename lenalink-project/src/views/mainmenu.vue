@@ -4,7 +4,7 @@
       <div class="frames-frames11">
         <div class="frames-frames12">
           <div class="frames-frames13">
-            <img src="//frame46-hm6e.svg" alt="Frame46" class="frames-frame1" />
+            <img src="../images/mainlogo.png" alt="Frame46" class="frames-frame1" />
             <span class="frames-text10">LenaLink</span>
           </div>
           <span class="frames-text11">Команда Gophera</span>
@@ -21,11 +21,11 @@
             <div class="frames-frames18"></div>
           </div>
           <div class="frames-frames19" @click="goToPrototype">
-            <img
+            <!-- <img
               src="//rectangle21030-qjgk-200h.png"
               alt="Rectangle21030"
               class="frames-rectangle2"
-            />
+            /> -->
             <span class="frames-text13">Заказать</span>
           </div>
           <div class="frames-frames20">
@@ -34,7 +34,7 @@
               <div class="frames-frames22">
                 <div class="frames-frames23">
                   <div class="frames-frames24">
-                    <img src="//frame436-3acs.svg" alt="Frame436" class="frames-frame2" />
+                    <img src="../images/airplane.png" alt="Frame436" class="frames-frame2" />
                   </div>
                   <div class="frames-frames25"></div>
                 </div>
@@ -47,7 +47,7 @@
               <div class="frames-frames27">
                 <div class="frames-frames28">
                   <div class="frames-frames29">
-                    <img src="//frame446-2nsi.svg" alt="Frame446" class="frames-frame3" />
+                    <img src="../images/train.png" alt="Frame446" class="frames-frame3" />
                   </div>
                   <div class="frames-frames30"></div>
                 </div>
@@ -60,7 +60,7 @@
               <div class="frames-frames32">
                 <div class="frames-frames33">
                   <div class="frames-frames34">
-                    <img src="//frame456-7g1.svg" alt="Frame456" class="frames-frame4" />
+                    <img src="../images/boat.png" alt="Frame456" class="frames-frame4" />
                   </div>
                   <div class="frames-frames35"></div>
                 </div>
@@ -73,7 +73,7 @@
               <div class="frames-frames37">
                 <div class="frames-frames38">
                   <div class="frames-frames39">
-                    <img src="//frame466-5y4.svg" alt="Frame466" class="frames-frame5" />
+                    <img src="../images/bus.png" alt="Frame466" class="frames-frame5" />
                   </div>
                   <div class="frames-frames40"></div>
                 </div>
@@ -95,6 +95,7 @@
 </template>
 
 <script>
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 export default {
   name: 'Frames',
   methods: {
@@ -104,5 +105,6 @@ export default {
   },
 }
 </script>
+
 
 <style scoped src="./mainmenu.css"></style>
