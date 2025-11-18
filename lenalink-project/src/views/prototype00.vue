@@ -2,6 +2,11 @@
   <div class="prototype00-container1">
     <div class="prototype00-prototype00">
       <div class="prototype00-frames10">
+        <div class="prototype00-back-arrow" @click="goBack">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </div>
         <div class="prototype00-frames11">
           <span class="prototype00-text10">Выберите маршрут</span>
           <span class="prototype00-text11">LenaLink Co. - Команда Goферы</span>
@@ -175,6 +180,11 @@ export default {
       raww2p5: ' ',
     }
   },
+  methods: {
+    goBack() {
+      this.$router.push('/')
+    },
+  },
   metaInfo: {
     title: 'exported project',
   },
@@ -182,13 +192,49 @@ export default {
 </script>
 
 <style scoped>
+.prototype00-back-arrow {
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.prototype00-back-arrow:hover,
+.prototype00-back-arrow:active {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+}
+
+.prototype00-back-arrow svg {
+  color: rgba(31, 41, 55, 1);
+}
+
 .prototype00-container1 {
   width: 100%;
   display: flex;
   overflow: auto;
+  overflow-x: hidden;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   align-items: center;
   flex-direction: column;
+  -webkit-overflow-scrolling: touch;
 }
  
 .prototype00-prototype00 {
@@ -210,7 +256,7 @@ export default {
   height: 989px;
   display: flex;
   position: absolute;
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0) ;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   align-items: flex-start;
   flex-shrink: 0;
   border-color: rgba(229, 231, 235, 1);
@@ -1050,5 +1096,229 @@ export default {
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+}
+
+/* Responsive Design for Mobile Devices */
+
+/* iPhone SE, 5, 5S (320px) */
+@media only screen and (max-width: 375px) {
+  .prototype00-prototype00 {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .prototype00-frames10 {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 20px;
+  }
+  
+  .prototype00-back-arrow {
+    width: 36px;
+    height: 36px;
+    top: 20px;
+    left: 12px;
+  }
+  
+  .prototype00-text10 {
+    font-size: 20px;
+  }
+  
+  .prototype00-frames12,
+  .prototype00-frames23 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  .prototype00-frames13,
+  .prototype00-frames16,
+  .prototype00-frames19 {
+    width: calc(100% - 24px);
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  
+  .prototype00-text12,
+  .prototype00-text15,
+  .prototype00-text18 {
+    font-size: 16px;
+  }
+  
+  .prototype00-text14,
+  .prototype00-text17,
+  .prototype00-text23 {
+    font-size: 13px;
+  }
+}
+
+/* iPhone 6, 7, 8, X, 11 Pro, 12 Mini (375px - 390px) */
+@media only screen and (min-width: 375px) and (max-width: 430px) {
+  .prototype00-prototype00 {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .prototype00-frames10 {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    padding-bottom: 20px;
+  }
+  
+  .prototype00-back-arrow {
+    top: max(24px, env(safe-area-inset-top, 24px));
+  }
+}
+
+/* iPhone 12, 13, 14 Pro Max, Galaxy S21+ (414px - 428px) */
+@media only screen and (min-width: 414px) and (max-width: 480px) {
+  .prototype00-prototype00 {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .prototype00-frames10 {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    padding-bottom: 20px;
+  }
+}
+
+/* Landscape orientation */
+@media only screen and (max-height: 430px) and (orientation: landscape) {
+  .prototype00-prototype00 {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .prototype00-frames10 {
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    padding-bottom: 20px;
+  }
+  
+  .prototype00-back-arrow {
+    width: 36px;
+    height: 36px;
+    top: 16px;
+    left: 12px;
+  }
+  
+  .prototype00-frames11 {
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  .prototype00-frames12 {
+    gap: 12px;
+  }
+  
+  .prototype00-frames13,
+  .prototype00-frames16,
+  .prototype00-frames19 {
+    height: auto;
+    min-height: 100px;
+  }
+  
+  .prototype00-frames24 {
+    gap: 12px;
+  }
+}
+
+/* Safe area for notched devices (iPhone X and newer) */
+@supports (padding: max(0px)) {
+  .prototype00-frames10 {
+    padding-top: max(0px, env(safe-area-inset-top));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+  
+  .prototype00-back-arrow {
+    top: max(24px, calc(env(safe-area-inset-top) + 24px));
+    left: max(16px, calc(env(safe-area-inset-left) + 16px));
+  }
+}
+
+/* High DPI displays */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi) {
+  .prototype00-prototype00 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .prototype00-prototype00 {
+    background: linear-gradient(180deg, rgba(30, 58, 138, 1) 0%, rgba(30, 64, 175, 1) 50%);
+  }
+  
+  .prototype00-frames10 {
+    background-color: rgba(31, 41, 55, 0.9);
+  }
+  
+  .prototype00-back-arrow {
+    background-color: rgba(55, 65, 81, 0.9);
+  }
+  
+  .prototype00-back-arrow svg {
+    color: rgba(229, 231, 235, 1);
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .prototype00-back-arrow {
+    transition: none;
+  }
+}
+
+/* Fix for iOS Safari bottom bar */
+@supports (-webkit-touch-callout: none) {
+  .prototype00-container1 {
+    min-height: -webkit-fill-available;
+  }
+  
+  .prototype00-prototype00 {
+    min-height: -webkit-fill-available;
+  }
 }
 </style>

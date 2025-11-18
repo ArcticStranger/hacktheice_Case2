@@ -1,10 +1,3 @@
-/* Cross-browser compatibility reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
 :root {
   --dl-layout-size-large: 144px;
   --dl-layout-size-small: 48px;
@@ -37,47 +30,6 @@
   --dl-layout-radius-inputradius: 24px;
   --dl-layout-radius-buttonradius: 24px;
   --dl-layout-space-oneandhalfunits: 24px;
-}
-
-/* Mobile-first global styles */
-html {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Touch-friendly interactive elements */
-button, a, [role="button"] {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-/* Smooth transitions for all browsers */
-* {
-  -webkit-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  -moz-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  -o-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Fix for iOS Safari viewport height */
-@supports (-webkit-touch-callout: none) {
-  body {
-    min-height: -webkit-fill-available;
-  }
 }
  
 .button {
@@ -674,57 +626,5 @@ button, a, [role="button"] {
   }
   .thq-grid-auto-300 {
     grid-template-columns: 1fr;
-  }
-}
-
-/* Additional mobile optimizations */
-@media only screen and (max-width: 480px) {
-  /* Prevent text inflation on mobile */
-  html {
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-  }
-  
-  /* Optimize touch targets */
-  button, a, input, select, textarea {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
-
-/* Landscape mode optimizations */
-@media only screen and (max-height: 500px) and (orientation: landscape) {
-  body {
-    overflow-y: auto;
-  }
-}
-
-/* High DPI displays */
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-       only screen and (min-resolution: 192dpi),
-       only screen and (min-resolution: 2dppx) {
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-/* Accessibility: Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --dl-color-theme-neutral-dark: #FBFAF9;
-    --dl-color-theme-neutral-light: #191818;
   }
 }

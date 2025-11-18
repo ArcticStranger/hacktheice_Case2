@@ -3,11 +3,26 @@
     <div class="frames-frames10">
       <div class="frames-frames11">
         <div class="frames-frames12">
-          <div class="frames-frames13">
-            <img src="../images/mainlogo.png" alt="Frame46" class="frames-frame1" />
-            <span class="frames-text10">LenaLink</span>
+          <div class="frames-header-section">
+            <div class="frames-frames13">
+              <img src="../images/mainlogo.png" alt="Frame46" class="frames-frame1" />
+              <span class="frames-text10">MagnaTrip</span>
+            </div>
+            <button class="frames-register-button" @click="goToRegister">Регистрация</button>
           </div>
-          <span class="frames-text11">Команда Gophera</span>
+          <span class="frames-text11">Команда Goферы</span>
+        </div>
+        <div class="frames-search-module">
+          <h2 class="frames-search-title">Заказать маршрут</h2>
+          <div class="frames-search-description">
+            <p class="frames-search-text">
+              Удобное планирование маршрутов с несколькими видами транспорта и покупка единого
+              билета
+            </p>
+            <router-link to="/ticket-order" class="frames-search-link">
+              Перейти к заказу билетов
+            </router-link>
+          </div>
         </div>
         <div class="frames-frames14">
           <div class="frames-frames15">
@@ -19,14 +34,6 @@
           <div class="frames-frames16"></div>
           <div class="frames-frames17">
             <div class="frames-frames18"></div>
-          </div>
-          <div class="frames-frames19" @click="goToPrototype">
-            <!-- <img
-              src="//rectangle21030-qjgk-200h.png"
-              alt="Rectangle21030"
-              class="frames-rectangle2"
-            /> -->
-            <span class="frames-text13">Заказать</span>
           </div>
           <div class="frames-frames20">
             <span class="frames-text14">Пример маршрута</span>
@@ -95,16 +102,21 @@
 </template>
 
 <script>
-// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { RouterLink } from 'vue-router'
 export default {
   name: 'Frames',
+  components: {
+    RouterLink,
+  },
   methods: {
-    goToPrototype() {
-      this.$router.push('/prototype')
+    goToTicketOrder() {
+      this.$router.push('/ticket-order')
+    },
+    goToRegister() {
+      this.$router.push('/register')
     },
   },
 }
 </script>
-
 
 <style scoped src="./mainmenu.css"></style>

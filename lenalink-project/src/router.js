@@ -4,6 +4,8 @@ import Meta from 'vue-meta'
 
 import MainMenu from './views/mainmenu'
 import Prototype00 from './views/prototype00'
+import Register from './views/register'
+import TicketOrderMain from './views/ticketOrderMain'
 import NotFound from './views/not-found'
 import './style.css'
 
@@ -21,6 +23,16 @@ export default new Router({
       name: 'Prototype00',
       path: '/prototype',
       component: Prototype00,
+    },
+    {
+      name: 'TicketOrderMain',
+      path: '/ticket-order',
+      component: TicketOrderMain,
+    },
+    {
+      name: 'Register',
+      path: '/register',
+      component: Register,
     },
     {
       name: '404 - Not Found',
