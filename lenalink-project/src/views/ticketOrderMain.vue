@@ -2,6 +2,12 @@
   <div class="ticket-order-container">
     <div class="ticket-order-card">
       <div class="ticket-order-header">
+        <router-link to="/" class="back-button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="white" />
+          </svg>
+        </router-link>
+
         <div class="user-profile">
           <div class="user-avatar">
             <img src="../images/mainlogo.png" alt="Profile" class="user-avatar-img" />
@@ -11,14 +17,6 @@
             <span class="user-name">Анна Иванова</span>
           </div>
         </div>
-        <button class="notifications-btn">
-          <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
-            <path
-              d="M0.293751 7.29365C-0.0968742 7.68428 -0.0968742 8.31865 0.293751 8.70928L5.29375 13.7093C5.68438 14.0999 6.31875 14.0999 6.70938 13.7093C7.1 13.3187 7.1 12.6843 6.70938 12.2937L3.4125 8.9999H13C13.5531 8.9999 14 8.55303 14 7.9999C14 7.44678 13.5531 6.9999 13 6.9999H3.41563L6.70625 3.70615C7.09688 3.31553 7.09688 2.68115 6.70625 2.29053C6.31563 1.8999 5.68125 1.8999 5.29063 2.29053L0.290626 7.29053L0.293751 7.29365Z"
-              fill="#374151"
-            />
-          </svg>
-        </button>
       </div>
 
       <div class="main-content">
@@ -361,6 +359,29 @@ export default {
   color: white;
   position: relative;
   height: 260px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-2px);
+}
+
+.back-button svg {
+  flex-shrink: 0;
 }
 
 .ticket-order-header::after {
