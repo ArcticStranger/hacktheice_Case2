@@ -4,35 +4,141 @@
       <div class="mainmenu-header">
         <div class="header-top">
           <div class="app-logo">
-            <img src="../images/mainlogo.png" alt="Logo" class="logo-img" />
-            <span class="app-name">MagnaTrip</span>
+            <img src="../images/mainlogoW.png" alt="Logo" class="logo-img" />
+            <span class="app-name">LenaLink</span>
           </div>
           <router-link to="/register" class="register-btn"> Регистрация </router-link>
         </div>
 
         <div class="welcome-section">
-          <h1 class="welcome-title">Добро пожаловать! 👋</h1>
-          <p class="welcome-subtitle">
-            Планируйте мультимодальные путешествия с удобным поиском маршрутов
-          </p>
+          <div class="welcome-background">
+            <!-- Векторный фон с городом и транспортом -->
+            <svg class="city-background" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- Силуэт города -->
+              <g class="city-silhouette" fill="rgba(255, 255, 255, 0.1)">
+                <!-- Здания -->
+                <rect x="10" y="80" width="40" height="120" rx="2" />
+                <rect x="60" y="60" width="35" height="140" rx="2" />
+                <rect x="105" y="90" width="45" height="110" rx="2" />
+                <rect x="160" y="70" width="30" height="130" rx="2" />
+                <rect x="200" y="85" width="55" height="115" rx="2" />
+                <rect x="265" y="65" width="40" height="135" rx="2" />
+                <rect x="315" y="95" width="35" height="105" rx="2" />
+                <rect x="355" y="75" width="30" height="125" rx="2" />
+
+                <!-- Высотки -->
+                <rect x="35" y="40" width="25" height="160" rx="3" />
+                <rect x="140" y="45" width="20" height="155" rx="3" />
+                <rect x="285" y="35" width="28" height="165" rx="3" />
+
+                <!-- Окна в зданиях -->
+                <g fill="rgba(255, 255, 255, 0.3)">
+                  <rect x="15" y="100" width="8" height="12" rx="1" />
+                  <rect x="25" y="100" width="8" height="12" rx="1" />
+                  <rect x="15" y="120" width="8" height="12" rx="1" />
+                  <rect x="25" y="120" width="8" height="12" rx="1" />
+
+                  <rect x="70" y="85" width="6" height="10" rx="1" />
+                  <rect x="78" y="85" width="6" height="10" rx="1" />
+                  <rect x="70" y="100" width="6" height="10" rx="1" />
+                  <rect x="78" y="100" width="6" height="10" rx="1" />
+
+                  <rect x="110" y="115" width="10" height="14" rx="1" />
+                  <rect x="125" y="115" width="10" height="14" rx="1" />
+                  <rect x="110" y="135" width="10" height="14" rx="1" />
+                  <rect x="125" y="135" width="10" height="14" rx="1" />
+                </g>
+              </g>
+
+              <!-- Транспорт (размещен рандомно) -->
+              <g class="transport-vehicles" fill="rgba(255, 255, 255, 0.8)">
+                <!-- Самолет -->
+                <g transform="translate(50, 40)">
+                  <ellipse cx="0" cy="0" rx="20" ry="4" />
+                  <ellipse cx="8" cy="-6" rx="8" ry="2" />
+                  <ellipse cx="8" cy="6" rx="8" ry="2" />
+                  <rect x="-2" y="-1" width="4" height="2" rx="1" />
+                </g>
+
+                <!-- Поезд -->
+                <g transform="translate(200, 160)">
+                  <rect x="-15" y="-8" width="30" height="16" rx="2" />
+                  <circle cx="-10" cy="10" r="3" />
+                  <circle cx="10" cy="10" r="3" />
+                  <rect x="-12" y="-4" width="8" height="6" rx="1" />
+                  <rect x="-2" y="-4" width="8" height="6" rx="1" />
+                </g>
+
+                <!-- Автобус -->
+                <g transform="translate(320, 80)">
+                  <rect x="-12" y="-6" width="24" height="12" rx="2" />
+                  <circle cx="-8" cy="8" r="2.5" />
+                  <circle cx="8" cy="8" r="2.5" />
+                  <rect x="-8" y="-3" width="16" height="4" rx="1" />
+                  <rect x="-10" y="-1" width="4" height="2" rx="1" />
+                  <rect x="6" y="-1" width="4" height="2" rx="1" />
+                </g>
+
+                <!-- Лодка/Корабль -->
+                <g transform="translate(150, 180)">
+                  <path d="M-8,5 Q0,10 8,5 L6,5 Q0,8 -6,5 Z" />
+                  <rect x="-3" y="-5" width="6" height="10" rx="1" />
+                  <rect x="-1" y="-12" width="2" height="7" rx="1" />
+                </g>
+              </g>
+
+              <!-- Декоративные элементы -->
+              <g class="decorative-elements">
+                <!-- Облака -->
+                <g fill="rgba(255, 255, 255, 0.2)">
+                  <ellipse cx="50" cy="25" rx="15" ry="8" />
+                  <ellipse cx="60" cy="25" rx="10" ry="6" />
+                  <ellipse cx="45" cy="25" rx="8" ry="5" />
+
+                  <ellipse cx="220" cy="20" rx="12" ry="6" />
+                  <ellipse cx="230" cy="20" rx="8" ry="4" />
+                  <ellipse cx="215" cy="20" rx="6" ry="3" />
+                </g>
+
+                <!-- Волнистые линии (дороги/реки) -->
+                <path
+                  d="M0,180 Q50,175 100,180 T200,180 T300,180 T400,180"
+                  stroke="rgba(255, 255, 255, 0.1)"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <path
+                  d="M0,170 Q30,165 60,170 T120,170 T180,170 T240,170 T300,170 T360,170 T400,170"
+                  stroke="rgba(255, 255, 255, 0.05)"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+              </g>
+            </svg>
+          </div>
+
+          <!-- Модальное окно для текста -->
+          <div class="text-modal">
+            <div class="modal-overlay">
+              <h1 class="welcome-title">Добро пожаловать!</h1>
+              <p class="welcome-subtitle">
+                Планируйте мультимодальные путешествия с удобным поиском маршрутов
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="main-content">
         <div class="feature-section">
-          <h2 class="section-title">🚆 Что мы предлагаем</h2>
+          <h2 class="section-title">💡 Что мы предлагаем</h2>
           <div class="features-grid">
             <div class="feature-card">
               <div
                 class="feature-icon"
                 style="background: linear-gradient(135deg, #ebf8ff, #dbeafe)"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2S10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z"
-                    fill="#3B82F6"
-                  />
-                </svg>
+                <img src="../images/mainlogoW.png" alt="Logo" class="logo-img" />
               </div>
               <h3 class="feature-title">Мультимодальность</h3>
               <p class="feature-desc">Комбинируйте различные виды транспорта в одном маршруте</p>
@@ -43,12 +149,7 @@
                 class="feature-icon"
                 style="background: linear-gradient(135deg, #faf5ff, #f3e8ff)"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2L2 7V10C2 16 6 20 12 22C18 20 22 16 22 10V7L12 2ZM7 11L11 9V7L7 9V11ZM13 9V7L17 9V11L13 9ZM5 13L9 11V13L5 15V13ZM11 13L15 11V15L11 13Z"
-                    fill="#8B5CF6"
-                  />
-                </svg>
+                <img src="../images/QRCode.png" alt="Logo" class="logo-img" />
               </div>
               <h3 class="feature-title">Единый билет</h3>
               <p class="feature-desc">Оплачивайте весь маршрут одним платежом</p>
@@ -59,12 +160,7 @@
                 class="feature-icon"
                 style="background: linear-gradient(135deg, #f0fdfa, #ccfbf1)"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0ZM8 5H10V13H8V5ZM6 9H12V11H6V9Z"
-                    fill="#14B8A6"
-                  />
-                </svg>
+                <img src="../images/smartSearch.png" alt="Logo" class="logo-img" />
               </div>
               <h3 class="feature-title">Умный поиск</h3>
               <p class="feature-desc">Алгоритм находит лучшие варианты путешествий</p>
@@ -75,12 +171,7 @@
                 class="feature-icon"
                 style="background: linear-gradient(135deg, #ecfdf5, #d1fae5)"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z"
-                    fill="#10B981"
-                  />
-                </svg>
+                <img src="../images/techsupport.png" alt="Logo" class="logo-img" />
               </div>
               <h3 class="feature-title">Онлайн поддержка</h3>
               <p class="feature-desc">Помощь на всех этапах путешествия</p>
@@ -342,24 +433,170 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+}
+
+.welcome-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.city-background {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.city-silhouette {
+  animation: cityPulse 4s ease-in-out infinite alternate;
+}
+
+.transport-vehicles {
+  animation: transportFloat 6s ease-in-out infinite;
+}
+
+.decorative-elements {
+  animation: floatUp 12s ease-in-out infinite;
+}
+
+/* Анимации */
+@keyframes cityPulse {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes transportFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes airplaneFly {
+  0% {
+    transform: translateX(-20px) translateY(0px);
+  }
+  100% {
+    transform: translateX(420px) translateY(-5px);
+  }
+}
+
+@keyframes trainMove {
+  0% {
+    transform: translateX(-30px) translateY(0px);
+  }
+  50% {
+    transform: translateX(200px) translateY(-2px);
+  }
+  100% {
+    transform: translateX(430px) translateY(0px);
+  }
+}
+
+@keyframes busDrive {
+  0% {
+    transform: translateX(-25px) translateY(0px);
+  }
+  50% {
+    transform: translateX(100px) translateY(-1px);
+  }
+  100% {
+    transform: translateX(425px) translateY(0px);
+  }
+}
+
+@keyframes boatSail {
+  0% {
+    transform: translateX(-20px) translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(150px) translateY(-3px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(420px) translateY(0px) rotate(-1deg);
+  }
+}
+
+@keyframes floatUp {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Модальное окно для текста */
+.text-modal {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-overlay {
+  background: rgba(255, 102, 0, 0.4); /* ярко-оранжевый полупрозрачный фон */
+  backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 32px rgba(255, 102, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-align: center;
+  max-width: 400px;
+  animation: modalPulse 4s ease-in-out infinite;
+}
+
+@keyframes modalPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(255, 102, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(255, 102, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
 }
 
 .welcome-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #1a202c;
+  color: #ffffff;
   margin: 0 0 0.75rem;
   line-height: 1.2;
-  text-shadow: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .welcome-subtitle {
   font-size: 1rem;
-  color: #2d3748;
-  margin: 0;
+  color: #f7fafc;
+  margin: 0 auto;
   line-height: 1.5;
   max-width: 320px;
-  text-shadow: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-weight: 500;
 }
 
 .main-content {
@@ -621,10 +858,18 @@ export default {
 
   .welcome-title {
     font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
   }
 
   .welcome-subtitle {
     font-size: 1.1rem;
+    color: #f7fafc;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-weight: 500;
+    margin: 0 auto;
   }
 
   .features-grid {
@@ -678,6 +923,22 @@ export default {
 
   .mainmenu-header {
     padding: 1.5rem 1rem 0;
+  }
+
+  .welcome-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.9rem;
+    color: #f7fafc;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-weight: 500;
+    margin: 0 auto;
   }
 
   .main-content {

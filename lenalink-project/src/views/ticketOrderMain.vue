@@ -10,10 +10,10 @@
 
         <div class="user-profile">
           <div class="user-avatar">
-            <img src="../images/mainlogo.png" alt="Profile" class="user-avatar-img" />
+            <img src="../images/profileDefault.png" alt="Profile" class="user-avatar-img" />
           </div>
           <div class="user-info">
-            <span class="user-greeting">Добро пожаловать!</span>
+            <span class="user-greeting">Привет,</span>
             <span class="user-name">Анна Иванова</span>
           </div>
         </div>
@@ -21,10 +21,113 @@
 
       <div class="main-content">
         <div class="search-intro">
-          <h1 class="search-title">Добро пожаловать! 🌊</h1>
-          <p class="search-subtitle">
-            Давайте найдём для вас идеальный путь. Просто скажите, куда хотите отправиться!
-          </p>
+          <div class="welcome-background">
+            <!-- Векторный фон с городом и транспортом -->
+            <svg class="city-background" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+              <!-- Силуэт города -->
+              <g class="city-silhouette" fill="rgba(255, 255, 255, 0.1)">
+                <!-- Здания -->
+                <rect x="10" y="80" width="40" height="120" rx="2" />
+                <rect x="60" y="60" width="35" height="140" rx="2" />
+                <rect x="105" y="90" width="45" height="110" rx="2" />
+                <rect x="160" y="70" width="30" height="130" rx="2" />
+                <rect x="200" y="85" width="55" height="115" rx="2" />
+                <rect x="265" y="65" width="40" height="135" rx="2" />
+                <rect x="315" y="95" width="35" height="105" rx="2" />
+                <rect x="355" y="75" width="30" height="125" rx="2" />
+
+                <!-- Высотки -->
+                <rect x="35" y="40" width="25" height="160" rx="3" />
+                <rect x="140" y="45" width="20" height="155" rx="3" />
+                <rect x="285" y="35" width="28" height="165" rx="3" />
+
+                <!-- Окна в зданиях -->
+                <g fill="rgba(255, 255, 255, 0.3)">
+                  <rect x="15" y="100" width="8" height="12" rx="1" />
+                  <rect x="25" y="100" width="8" height="12" rx="1" />
+                  <rect x="15" y="120" width="8" height="12" rx="1" />
+                  <rect x="25" y="120" width="8" height="12" rx="1" />
+
+                  <rect x="70" y="85" width="6" height="10" rx="1" />
+                  <rect x="78" y="85" width="6" height="10" rx="1" />
+                  <rect x="70" y="100" width="6" height="10" rx="1" />
+                  <rect x="78" y="100" width="6" height="10" rx="1" />
+
+                  <rect x="110" y="115" width="10" height="14" rx="1" />
+                  <rect x="125" y="115" width="10" height="14" rx="1" />
+                  <rect x="110" y="135" width="10" height="14" rx="1" />
+                  <rect x="125" y="135" width="10" height="14" rx="1" />
+                </g>
+              </g>
+
+              <!-- Транспорт (размещен рандомно) -->
+              <g class="transport-vehicles" fill="rgba(255, 255, 255, 0.8)">
+                <!-- Самолет -->
+                <g transform="translate(60, 30)">
+                  <ellipse cx="0" cy="0" rx="20" ry="4" />
+                  <ellipse cx="8" cy="-6" rx="8" ry="2" />
+                  <ellipse cx="8" cy="6" rx="8" ry="2" />
+                  <rect x="-2" y="-1" width="4" height="2" rx="1" />
+                </g>
+
+                <!-- Поезд -->
+                <g transform="translate(220, 170)">
+                  <rect x="-15" y="-8" width="30" height="16" rx="2" />
+                  <circle cx="-10" cy="10" r="3" />
+                  <circle cx="10" cy="10" r="3" />
+                  <rect x="-12" y="-4" width="8" height="6" rx="1" />
+                  <rect x="-2" y="-4" width="8" height="6" rx="1" />
+                </g>
+
+                <!-- Автобус -->
+                <g transform="translate(300, 90)">
+                  <rect x="-12" y="-6" width="24" height="12" rx="2" />
+                  <circle cx="-8" cy="8" r="2.5" />
+                  <circle cx="8" cy="8" r="2.5" />
+                  <rect x="-8" y="-3" width="16" height="4" rx="1" />
+                  <rect x="-10" y="-1" width="4" height="2" rx="1" />
+                  <rect x="6" y="-1" width="4" height="2" rx="1" />
+                </g>
+
+                <!-- Лодка/Корабль -->
+                <g transform="translate(140, 150)">
+                  <path d="M-8,5 Q0,10 8,5 L6,5 Q0,8 -6,5 Z" />
+                  <rect x="-3" y="-5" width="6" height="10" rx="1" />
+                  <rect x="-1" y="-12" width="2" height="7" rx="1" />
+                </g>
+              </g>
+
+              <!-- Декоративные элементы -->
+              <g class="decorative-elements">
+                <!-- Облака -->
+                <g fill="rgba(255, 255, 255, 0.2)">
+                  <ellipse cx="50" cy="25" rx="15" ry="8" />
+                  <ellipse cx="60" cy="25" rx="10" ry="6" />
+                  <ellipse cx="45" cy="25" rx="8" ry="5" />
+
+                  <ellipse cx="220" cy="20" rx="12" ry="6" />
+                  <ellipse cx="230" cy="20" rx="8" ry="4" />
+                  <ellipse cx="215" cy="20" rx="6" ry="3" />
+                </g>
+
+                <!-- Волнистые линии (дороги/реки) -->
+                <path
+                  d="M0,180 Q50,175 100,180 T200,180 T300,180 T400,180"
+                  stroke="rgba(255, 255, 255, 0.1)"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <path
+                  d="M0,170 Q30,165 60,170 T120,170 T180,170 T240,170 T300,170 T360,170 T400,170"
+                  stroke="rgba(255, 255, 255, 0.05)"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+              </g>
+            </svg>
+          </div>
+
+          <!-- Модальное окно для текста -->
         </div>
 
         <div class="search-card">
@@ -98,12 +201,7 @@
                   class="search-input-small"
                 />
                 <div class="input-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M16 4C18.2 4 20 5.8 20 8C20 10.2 18.2 12 16 12C13.8 12 12 10.2 12 8C12 5.8 13.8 4 16 4ZM16 14C18.67 14 29 15.34 29 18V20H3V18C3 15.34 13.33 14 16 14ZM8 8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 9.1 11.1 10 10 10C8.9 10 8 9.1 8 8ZM14 8C14 6.9 14.9 6 16 6C17.1 6 18 6.9 18 8C18 9.1 17.1 10 16 10C14.9 10 14 9.1 14 8Z"
-                      fill="#6B7280"
-                    />
-                  </svg>
+                  <span style="font-size: 14px">👤</span>
                 </div>
               </div>
             </div>
@@ -141,10 +239,29 @@
                 style="background: linear-gradient(135deg, #faf5ff, #f3e8ff)"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2C12 1.45 12.45 1 13 1H14C14.55 1 15 1.45 15 2V3H16V5H15V7H14V8H15V10H14V12H15V14H14V16H15V18H14C14.55 18 15 18.45 15 19V20H13C12.45 20 12 19.55 12 19V18H10V16H9V14H10V12H9V10H10V8H9V7H10V5H9V3H10V2C10 1.45 10.45 1 11 1H12C12.55 1 13 1.45 13 2V3H12V2Z"
-                    fill="#8B5CF6"
-                  />
+                  <!-- Локомотив спереди -->
+                  <rect x="2" y="8" width="3" height="8" fill="#8B5CF6" />
+                  <circle cx="3.5" cy="17" r="1.5" fill="#8B5CF6" />
+                  <circle cx="3.5" cy="17" r="0.8" fill="#ffffff" />
+
+                  <!-- Основной вагон -->
+                  <rect x="5" y="6" width="17" height="12" rx="2" fill="#8B5CF6" />
+
+                  <!-- Окна -->
+                  <rect x="7" y="8" width="2" height="3" rx="0.5" fill="#ffffff" />
+                  <rect x="10" y="8" width="2" height="3" rx="0.5" fill="#ffffff" />
+                  <rect x="13" y="8" width="2" height="3" rx="0.5" fill="#ffffff" />
+                  <rect x="16" y="8" width="2" height="3" rx="0.5" fill="#ffffff" />
+                  <rect x="19" y="8" width="2" height="3" rx="0.5" fill="#ffffff" />
+
+                  <!-- Колеса -->
+                  <circle cx="9" cy="18" r="1.2" fill="#8B5CF6" />
+                  <circle cx="9" cy="18" r="0.7" fill="#ffffff" />
+                  <circle cx="15" cy="18" r="1.2" fill="#8B5CF6" />
+                  <circle cx="15" cy="18" r="0.7" fill="#ffffff" />
+
+                  <!-- Дверь -->
+                  <rect x="6" y="11" width="1.5" height="5" rx="0.3" fill="#ffffff" />
                 </svg>
               </div>
               <span class="transport-name">Поезд</span>
@@ -157,10 +274,46 @@
                 style="background: linear-gradient(135deg, #f0fdfa, #ccfbf1)"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M4 16V6C4 4.9 4.9 4 6 4H7V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H18C19.1 4 20 4.9 20 6V16C20 17.1 19.1 18 18 18H17V20H15V18H9V20H7V18H6C4.9 18 4 17.1 4 16ZM6 6H18V14H6V6ZM6 16V16H18V16H6ZM9 8H11V10H9V8ZM13 8H15V10H13V8ZM9 12H11V14H9V12ZM13 12H15V14H13V12Z"
-                    fill="#14B8A6"
+                  <!-- Основной корпус автобуса -->
+                  <rect x="3" y="7" width="18" height="10" rx="2" fill="#14B8A6" />
+
+                  <!-- Передняя часть -->
+                  <rect x="3" y="9" width="2" height="6" rx="1" fill="#14B8A6" />
+
+                  <!-- Окна -->
+                  <rect x="6" y="8" width="2.5" height="3" rx="0.5" fill="#ffffff" />
+                  <rect x="9" y="8" width="2.5" height="3" rx="0.5" fill="#ffffff" />
+                  <rect x="12" y="8" width="2.5" height="3" rx="0.5" fill="#ffffff" />
+                  <rect x="15" y="8" width="2.5" height="3" rx="0.5" fill="#ffffff" />
+                  <rect x="18" y="8" width="2" height="3" rx="0.3" fill="#ffffff" />
+
+                  <!-- Дверь -->
+                  <rect
+                    x="11"
+                    y="11.5"
+                    width="2"
+                    height="3.5"
+                    rx="0.3"
+                    fill="none"
+                    stroke="#ffffff"
+                    stroke-width="0.5"
                   />
+
+                  <!-- Передний бампер -->
+                  <rect x="2" y="14" width="3" height="1.5" rx="0.3" fill="#14B8A6" />
+
+                  <!-- Задний бампер -->
+                  <rect x="19" y="14" width="3" height="1.5" rx="0.3" fill="#14B8A6" />
+
+                  <!-- Колеса -->
+                  <circle cx="7" cy="17" r="1.8" fill="#14B8A6" />
+                  <circle cx="7" cy="17" r="1" fill="#ffffff" />
+                  <circle cx="17" cy="17" r="1.8" fill="#14B8A6" />
+                  <circle cx="17" cy="17" r="1" fill="#ffffff" />
+
+                  <!-- Фары -->
+                  <circle cx="2.5" cy="12" r="0.5" fill="#ffffff" />
+                  <circle cx="21.5" cy="12" r="0.5" fill="#ffffff" />
                 </svg>
               </div>
               <span class="transport-name">Автобус</span>
@@ -173,10 +326,39 @@
                 style="background: linear-gradient(135deg, #ecfdf5, #d1fae5)"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <!-- Лодка (корпус) -->
                   <path
-                    d="M2 15L12 11L22 15V19C22 19.55 21.55 20 21 20H3C2.45 20 2 19.55 2 19V15ZM12 11L22 7V10H2V7L12 11Z"
+                    d="M4 16L8 14L16 14L20 16V18C20 18.5 19.5 19 19 19H5C4.5 19 4 18.5 4 18V16Z"
                     fill="#10B981"
                   />
+
+                  <!-- Внутренняя часть лодки -->
+                  <rect x="6" y="15" width="12" height="1.5" fill="#ffffff" opacity="0.7" />
+
+                  <!-- Мачта -->
+                  <rect x="12" y="8" width="0.8" height="7" fill="#10B981" />
+
+                  <!-- Парус -->
+                  <path d="M12 9L18 13L12 16Z" fill="#ffffff" opacity="0.9" />
+
+                  <!-- Второй парус -->
+                  <path d="M12 10L8 13L12 14.5Z" fill="#ffffff" opacity="0.6" />
+
+                  <!-- Волнистая линия воды -->
+                  <path
+                    d="M3 18.5Q4 18 5 18.5Q6 19 7 18.5Q8 18 9 18.5Q10 19 11 18.5Q12 18 13 18.5Q14 19 15 18.5Q16 18 17 18.5Q18 19 19 18.5Q20 18 21 18.5"
+                    stroke="#14B8A6"
+                    stroke-width="0.8"
+                    fill="none"
+                    opacity="0.8"
+                  />
+
+                  <!-- Капли воды -->
+                  <circle cx="9" cy="19.2" r="0.3" fill="#14B8A6" opacity="0.6" />
+                  <circle cx="15" cy="19.5" r="0.3" fill="#14B8A6" opacity="0.6" />
+
+                  <!-- Флаг на мачте -->
+                  <path d="M12.8 8.5L14.5 8.8L12.8 9.5Z" fill="#10B981" />
                 </svg>
               </div>
               <span class="transport-name">Речной транспорт</span>
@@ -352,13 +534,13 @@ export default {
 
 .ticket-order-header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  padding: 2.5rem 1.25rem 0;
+  padding: 0.3rem 1.25rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
   position: relative;
-  height: 260px;
+  height: 140px;
 }
 
 .back-button {
@@ -462,38 +644,184 @@ export default {
 
 .search-intro {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 0rem;
+  position: relative;
+}
+
+.welcome-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.city-background {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.city-silhouette {
+  animation: cityPulse 4s ease-in-out infinite alternate;
+}
+
+.transport-vehicles {
+  animation: transportFloat 6s ease-in-out infinite;
+}
+
+.decorative-elements {
+  animation: floatUp 12s ease-in-out infinite;
+}
+
+/* Анимации */
+@keyframes cityPulse {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes transportFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes airplaneFly {
+  0% {
+    transform: translateX(-20px) translateY(0px);
+  }
+  100% {
+    transform: translateX(420px) translateY(-5px);
+  }
+}
+
+@keyframes trainMove {
+  0% {
+    transform: translateX(-30px) translateY(0px);
+  }
+  50% {
+    transform: translateX(200px) translateY(-2px);
+  }
+  100% {
+    transform: translateX(430px) translateY(0px);
+  }
+}
+
+@keyframes busDrive {
+  0% {
+    transform: translateX(-25px) translateY(0px);
+  }
+  50% {
+    transform: translateX(100px) translateY(-1px);
+  }
+  100% {
+    transform: translateX(425px) translateY(0px);
+  }
+}
+
+@keyframes boatSail {
+  0% {
+    transform: translateX(-20px) translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(150px) translateY(-3px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(420px) translateY(0px) rotate(-1deg);
+  }
+}
+
+@keyframes floatUp {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Модальное окно для текста */
+.text-modal {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-overlay {
+  background: rgba(255, 102, 0, 0.4); /* ярко-оранжевый полупрозрачный фон */
+  backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 32px rgba(255, 102, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-align: center;
+  max-width: 400px;
+  animation: modalPulse 4s ease-in-out infinite;
+}
+
+@keyframes modalPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 32px rgba(255, 102, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(255, 102, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
 }
 
 .search-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #1a202c;
+  color: #ffffff;
   margin: 0 0 0.75rem;
   line-height: 1.2;
-  text-shadow: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .search-subtitle {
   font-size: 1.1rem;
-  color: #2d3748;
-  margin: 0;
+  color: #f7fafc;
+  margin: 0 auto;
   line-height: 1.5;
   max-width: 300px;
-  text-shadow: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-weight: 500;
 }
 
 .search-card {
   background: white;
   border-radius: 24px;
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.9);
-  margin: 0 1rem;
+  margin: 0rem 0.5rem;
   z-index: 2;
 }
 
@@ -806,10 +1134,18 @@ export default {
 
   .search-title {
     font-size: 1.75rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
   }
 
   .search-subtitle {
     font-size: 1rem;
+    color: #f7fafc;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-weight: 500;
+    margin: 0 auto;
   }
 
   .transport-grid {
@@ -836,8 +1172,8 @@ export default {
   }
 
   .ticket-order-header {
-    padding: 3.5rem 2rem 0;
-    height: 360px;
+    padding: 0.8rem 2rem 0;
+    height: 180px;
   }
 
   .ticket-order-header::after {
@@ -867,7 +1203,23 @@ export default {
   }
 
   .ticket-order-header {
-    padding: 1.5rem 1rem 0;
+    padding: 0.2rem 1rem 0;
+  }
+
+  .search-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .search-subtitle {
+    font-size: 0.9rem;
+    color: #f7fafc;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-weight: 500;
+    margin: 0 auto;
   }
 
   .main-content {
