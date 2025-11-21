@@ -6,6 +6,7 @@ import MainMenu from './views/mainmenu'
 import Prototype00 from './views/prototype00'
 import Register from './views/register'
 import TicketOrderMain from './views/ticketOrderMain'
+import TicketMonitoring from './views/ticketMonitoring/views/TicketMonitoring'
 import NotFound from './views/not-found'
 import './style.css'
 
@@ -28,6 +29,15 @@ export default new Router({
       name: 'TicketOrderMain',
       path: '/ticket-order',
       component: TicketOrderMain,
+    },
+    {
+      name: 'TicketMonitoring',
+      path: '/ticket-monitoring',
+      component: TicketMonitoring,
+      meta: {
+        title: 'Мониторинг билета - LenaLink',
+        description: 'Отслеживание статуса и деталей вашего маршрута',
+      },
     },
     {
       name: 'Register',

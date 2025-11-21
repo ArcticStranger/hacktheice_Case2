@@ -207,7 +207,17 @@
             </div>
           </div>
 
-          <button class="search-button">Найти лучшие варианты путешествия</button>
+          <button class="search-button" @click="searchRoutes">
+            Найти лучшие варианты путешествия
+          </button>
+
+          <!-- Кнопка для тестирования мониторинга -->
+          <div class="monitoring-test-section" v-if="showMonitoringTest">
+            <button class="monitoring-button" @click="goToMonitoring">
+              📊 Перейти к мониторингу билета
+            </button>
+            <p class="monitoring-description">Тестирование мониторинга с данными Москва → Якутск</p>
+          </div>
         </div>
 
         <div class="transport-types">
@@ -453,6 +463,7 @@ export default {
         date: '',
         passengers: '',
       },
+      showMonitoringTest: true, // Показываем секцию тестирования
     }
   },
   methods: {
@@ -463,6 +474,26 @@ export default {
     },
     searchRoutes() {
       console.log('Поиск маршрутов:', this.searchForm)
+      // Здесь можно добавить реальный поиск маршрутов
+      alert('Поиск маршрутов: ' + JSON.stringify(this.searchForm))
+    },
+    goToMonitoring() {
+      // Сохраняем тестовые данные билета в localStorage
+      const testTicketData = {
+        ticketId: 'test-moscow-yakutsk-' + Date.now(),
+        from_city: 'Москва',
+        to_city: 'Якутск',
+        departure_date: '2025-12-25',
+        passengers: 1,
+        total_price: 32500,
+        total_duration: 28800000000000, // 8 часов в наносекундах
+        status: 'confirmed',
+      }
+
+      localStorage.setItem('currentTicketId', testTicketData.ticketId)
+
+      // Переходим к мониторингу
+      this.$router.push('/ticket-monitoring?ticketId=' + testTicketData.ticketId)
     },
   },
 }
@@ -921,6 +952,46 @@ export default {
 .search-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+}
+
+/* Стили для секции тестирования мониторинга */
+.monitoring-test-section {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 16px;
+  border: 2px dashed rgba(102, 126, 234, 0.3);
+}
+
+.monitoring-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  font-family: inherit;
+}
+
+.monitoring-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%);
+}
+
+.monitoring-description {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
 .section-title {
