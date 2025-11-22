@@ -94,6 +94,27 @@
         <button class="retry-button" @click="retryLoad">Попробовать снова</button>
       </div>
 
+      <!-- Интерактивная карта маршрута -->
+      <div v-if="selectedRoute && !loading" class="route-map-card">
+        <h2 class="section-title">Карта маршрута</h2>
+        <YandexMap
+          :route="selectedRoute"
+          height="400px"
+          :defaultZoom="8"
+          @bounds-changed="onMapBoundsChanged"
+        />
+        <div class="map-info">
+          <div class="info-item">
+            <span class="info-label">Маршрут:</span>
+            <span class="info-value">{{ getRouteSummary() }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Промежуточные остановки:</span>
+            <span class="info-value">{{ selectedRoute.segments?.length - 1 || 0 }}</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Детальная информация о маршруте -->
       <div v-if="selectedRoute && !loading" class="route-details-card">
         <h2 class="section-title">Детали маршрута</h2>
@@ -230,9 +251,13 @@ import {
   ROUTE_TYPES,
   TICKET_STATUSES,
 } from '../../../api/ticketMonitoring.js'
+import YandexMap from '../../../components/YandexMap.vue'
 
 export default {
   name: 'TicketMonitoring',
+  components: {
+    YandexMap,
+  },
   data() {
     return {
       ticketId: null,
@@ -403,6 +428,31 @@ export default {
       }
       return statusTexts[status] || 'Неизвестно'
     },
+
+    getRouteSummary() {
+      if (!this.selectedRoute || !this.selectedRoute.segments) {
+        return 'Информация недоступна'
+      }
+
+      const segments = this.selectedRoute.segments
+      if (segments.length === 0) return 'Маршрут без остановок'
+
+      const startPoint = segments[0].from
+      const endPoint = segments[segments.length - 1].to
+
+      if (segments.length === 1) {
+        return `${startPoint} → ${endPoint}`
+      } else {
+        return `${startPoint} → ... → ${endPoint} (${segments.length - 1} пересадка${
+          segments.length - 1 > 1 ? 'и' : ''
+        })`
+      }
+    },
+
+    onMapBoundsChanged(boundsData) {
+      console.log('Map bounds changed:', boundsData)
+      // Можно добавить логику для сохранения состояния карты или аналитики
+    },
   },
 }
 </script>
@@ -499,7 +549,8 @@ export default {
 
 /* Cards */
 .ticket-info-card,
-.route-details-card {
+.route-details-card,
+.route-map-card {
   background: white;
   border-radius: 16px; /* Уменьшено для компактности */
   padding: 1.25rem; /* Уменьшено для MacBook Air */
@@ -1015,6 +1066,80 @@ export default {
   .back-button {
     padding: 0.5rem 0.75rem;
     font-size: 0.85rem;
+  }
+}
+
+/* Стили для карты маршрута */
+.route-map-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.map-info {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f9fafb;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 0.9rem;
+  color: #1f2937;
+  font-weight: 600;
+  text-align: right;
+  flex: 1;
+  margin-left: 1rem;
+}
+
+/* Адаптивность для карты */
+@media (max-width: 768px) {
+  .route-map-card {
+    padding: 1rem;
+  }
+
+  .map-info {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .info-item {
+    padding: 0.375rem 0;
+  }
+
+  .info-label,
+  .info-value {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .route-map-card {
+    padding: 0.75rem;
+  }
+
+  .map-info {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
   }
 }
 </style>
