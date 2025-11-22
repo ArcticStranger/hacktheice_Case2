@@ -185,10 +185,14 @@ export default {
     getFallbackCoordinates(cityName) {
       // Fallback координаты для основных городов России
       const cityCoords = {
+        // Москва и аэропорты
         Москва: [55.751244, 37.618423],
         'Москва (VKO)': [55.603718, 37.289481], // Внуково
         'Москва (SVO)': [55.972642, 37.414581], // Шереметьево
         'Москва (DME)': [55.408611, 37.906544], // Домодедово
+        'Москва (Казанский вокзал)': [55.7785, 37.6559], // Казанский вокзал
+
+        // Основные города
         Якутск: [62.035452, 129.675481],
         'Санкт-Петербург': [59.931058, 30.360911],
         Новосибирск: [55.008352, 82.935729],
@@ -202,6 +206,13 @@ export default {
         Уфа: [54.738756, 55.972056],
         Красноярск: [56.015286, 92.893251],
         Воронеж: [51.675496, 39.208882],
+
+        // Мультимодальные маршруты
+        Сочи: [43.6028, 39.7342],
+        Краснодар: [45.0355, 38.9753],
+        Волгоград: [48.708048, 44.513252],
+        Астрахань: [46.342685, 48.040841],
+        Сочи: [43.6028, 39.7342],
       }
 
       // Поиск точного совпадения
@@ -341,58 +352,76 @@ export default {
     },
 
     async addRouteLine() {
-      const coordinates = []
+      this.routeLine = [] // Массив для хранения всех линий сегментов
 
-      // Собираем уникальные координаты в правильном порядке
+      // Создаем отдельную полилинию для каждого сегмента
       for (let i = 0; i < this.route.segments.length; i++) {
         const segment = this.route.segments[i]
-
-        // Добавляем точку отправления для первого сегмента
-        if (i === 0) {
-          const fromCoords = await this.getCityCoordinates(segment.from)
-          if (fromCoords) {
-            coordinates.push(fromCoords)
-            console.log('Added start point:', segment.from, fromCoords)
-          }
-        }
-
-        // Добавляем точку назначения для каждого сегмента
+        const fromCoords = await this.getCityCoordinates(segment.from)
         const toCoords = await this.getCityCoordinates(segment.to)
-        if (toCoords) {
-          // Избегаем дублирования последней точки
-          const lastCoord = coordinates[coordinates.length - 1]
-          if (!lastCoord || lastCoord[0] !== toCoords[0] || lastCoord[1] !== toCoords[1]) {
-            coordinates.push(toCoords)
-            console.log('Added destination point:', segment.to, toCoords)
-          }
-        }
-      }
 
-      console.log('Total coordinates for route:', coordinates)
-
-      if (coordinates.length > 1) {
-        try {
-          this.routeLine = new window.ymaps.Polyline(
-            coordinates,
+        if (fromCoords && toCoords) {
+          const segmentLine = new window.ymaps.Polyline(
+            [fromCoords, toCoords],
             {
-              balloonContent: 'Маршрут',
+              balloonContent: `
+                <div style="padding: 8px;">
+                  <strong>${segment.from} → ${segment.to}</strong><br>
+                  <small>${this.getTransportName(segment.transport_type)} • ${
+                segment.provider
+              }</small>
+                </div>
+              `,
             },
             {
-              strokeColor: '#dc2626',
-              strokeWidth: 5,
-              strokeOpacity: 0.8,
+              strokeColor: this.getTransportColor(segment.transport_type),
+              strokeWidth: 6,
+              strokeOpacity: 0.9,
               strokeStyle: 'solid',
             }
           )
 
-          this.map.geoObjects.add(this.routeLine)
-          console.log('Route line created successfully')
-        } catch (error) {
-          console.error('Failed to create route line:', error)
+          this.map.geoObjects.add(segmentLine)
+          this.routeLine.push(segmentLine)
+          console.log(
+            `Created segment line ${i + 1}:`,
+            segment.from,
+            '→',
+            segment.to,
+            this.getTransportColor(segment.transport_type)
+          )
         }
-      } else {
-        console.warn('Not enough coordinates to create route line')
       }
+
+      if (this.routeLine.length === 0) {
+        console.warn('No segment lines created')
+      } else {
+        console.log(`Successfully created ${this.routeLine.length} segment lines`)
+      }
+    },
+
+    getTransportColor(transportType) {
+      const colors = {
+        air: '#2563eb', // Синий для самолета
+        bus: '#059669', // Зеленый для автобуса
+        rail: '#7c3aed', // Фиолетовый для поезда
+        river: '#0ea5e9', // Голубой для речного транспорта
+        taxi: '#f59e0b', // Оранжевый для такси
+        ferry: '#06b6d4', // Циан для парома
+      }
+      return colors[transportType] || '#6b7280' // Серый по умолчанию
+    },
+
+    getTransportName(transportType) {
+      const names = {
+        air: 'Авиарейс',
+        bus: 'Автобус',
+        rail: 'Поезд',
+        river: 'Речной транспорт',
+        taxi: 'Такси',
+        ferry: 'Паром',
+      }
+      return names[transportType] || 'Транспорт'
     },
 
     fitMapToRoute() {

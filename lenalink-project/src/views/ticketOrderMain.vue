@@ -133,23 +133,15 @@
         <div class="search-card">
           <div class="search-fields">
             <div class="input-group">
-              <input
+              <CityAutocomplete
                 v-model="searchForm.from"
-                type="text"
                 placeholder="Укажите город отправления"
-                class="search-input"
+                :cities="cities"
+                @select="onCitySelect('from', $event)"
               />
-              <div class="input-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
-                    fill="#6B7280"
-                  />
-                </svg>
-              </div>
             </div>
 
-            <button class="swap-btn">
+            <button class="swap-btn" @click="swapLocations">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M7 7H11V5L16 10L11 15V13H7V11H11V9L16 4L11 -1V1H7V3H3V7H7ZM17 17H13V19L8 14L13 9V11H17V13H13V15L8 20L13 25V21H17V19H21V15H17V17Z"
@@ -159,20 +151,12 @@
             </button>
 
             <div class="input-group">
-              <input
+              <CityAutocomplete
                 v-model="searchForm.to"
-                type="text"
                 placeholder="Укажите город назначения"
-                class="search-input"
+                :cities="cities"
+                @select="onCitySelect('to', $event)"
               />
-              <div class="input-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
-                    fill="#6B7280"
-                  />
-                </svg>
-              </div>
             </div>
 
             <div class="date-passenger-group">
@@ -452,8 +436,14 @@
 </template>
 
 <script>
+import CityAutocomplete from '../components/CityAutocomplete.vue'
+import { CITIES_DATABASE, getPopularCities } from '../utils/cities.js'
+
 export default {
   name: 'TicketOrderMain',
+  components: {
+    CityAutocomplete,
+  },
   data() {
     return {
       userName: 'Анна Иванова',
@@ -464,6 +454,7 @@ export default {
         passengers: '',
       },
       showMonitoringTest: true, // Показываем секцию тестирования
+      cities: getPopularCities(), // Загружаем популярные города
     }
   },
   methods: {
@@ -471,6 +462,11 @@ export default {
       const temp = this.searchForm.from
       this.searchForm.from = this.searchForm.to
       this.searchForm.to = temp
+    },
+    onCitySelect(field, city) {
+      console.log(`Выбран город для поля ${field}:`, city)
+      // Можно дополнительно сохранить координаты города или другие данные
+      // например: this.selectedFromCoords = { lat: city.lat, lon: city.lon }
     },
     searchRoutes() {
       console.log('Поиск маршрутов:', this.searchForm)

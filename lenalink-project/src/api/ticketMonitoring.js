@@ -126,6 +126,100 @@ const MOCK_DATA = {
         },
       ],
     },
+    multimodal: {
+      routes: [
+        {
+          id: 'multimodal-route-1',
+          from_city: 'Казань',
+          to_city: 'Сочи',
+          departure_time: '2025-12-25T06:00:00',
+          arrival_time: '2025-12-27T18:00:00',
+          total_duration: 158400000000000, // 44 часа в наносекундах
+          total_price: 28500,
+          transport_types: ['air', 'rail', 'bus'],
+          segments: [
+            {
+              id: 'seg-m1',
+              from: 'Казань',
+              to: 'Волгоград',
+              transport_type: 'air',
+              provider: 'Utair',
+              departure_time: '2025-12-25T06:00:00',
+              arrival_time: '2025-12-25T08:30:00',
+              duration: 9000000000000, // 2.5 часа
+              price: 8500,
+            },
+            {
+              id: 'seg-m2',
+              from: 'Волгоград',
+              to: 'Ростов-на-Дону',
+              transport_type: 'rail',
+              provider: 'РЖД',
+              departure_time: '2025-12-25T12:00:00',
+              arrival_time: '2025-12-25T18:30:00',
+              duration: 23400000000000, // 6.5 часов
+              price: 4200,
+            },
+            {
+              id: 'seg-m3',
+              from: 'Ростов-на-Дону',
+              to: 'Краснодар',
+              transport_type: 'bus',
+              provider: 'Межгород',
+              departure_time: '2025-12-25T20:00:00',
+              arrival_time: '2025-12-25T23:30:00',
+              duration: 12600000000000, // 3.5 часа
+              price: 1500,
+            },
+            {
+              id: 'seg-m4',
+              from: 'Краснодар',
+              to: 'Сочи',
+              transport_type: 'bus',
+              provider: 'Сочи-Экспресс',
+              departure_time: '2025-12-26T08:00:00',
+              arrival_time: '2025-12-26T14:30:00',
+              duration: 23400000000000, // 6.5 часов
+              price: 2800,
+            },
+          ],
+        },
+        {
+          id: 'multimodal-route-2',
+          from_city: 'Москва',
+          to_city: 'Астрахань',
+          departure_time: '2025-12-26T08:00:00',
+          arrival_time: '2025-12-27T16:00:00',
+          total_duration: 115200000000000, // 32 часа в наносекундах
+          total_price: 22400,
+          transport_types: ['rail', 'river', 'bus'],
+          segments: [
+            {
+              id: 'seg-mm1',
+              from: 'Москва (Казанский вокзал)',
+              to: 'Волгоград',
+              transport_type: 'rail',
+              provider: 'РЖД',
+              departure_time: '2025-12-26T08:00:00',
+              arrival_time: '2025-12-26T20:00:00',
+              duration: 43200000000000, // 12 часов
+              price: 6800,
+            },
+            {
+              id: 'seg-mm2',
+              from: 'Волгоград',
+              to: 'Астрахань',
+              transport_type: 'river',
+              provider: 'Волга-Лайн',
+              departure_time: '2025-12-27T06:00:00',
+              arrival_time: '2025-12-27T14:00:00',
+              duration: 28800000000000, // 8 часов
+              price: 9600,
+            },
+          ],
+        },
+      ],
+    },
   },
 }
 
@@ -371,6 +465,7 @@ export const ROUTE_TYPES = {
   OPTIMAL: 'optimal', // Оптимальный маршрут
   CHEAPEST: 'cheapest', // Самый дешевый
   FASTEST: 'fastest', // Самый быстрый
+  MULTIMODAL: 'multimodal', // Мультимодальный маршрут
 }
 
 /**

@@ -285,6 +285,12 @@ export default {
           description: 'Минимальное время в пути',
           icon: '⚡',
         },
+        {
+          value: ROUTE_TYPES.MULTIMODAL,
+          title: 'Мультимодальный',
+          description: 'Комбинация разных видов транспорта',
+          icon: '🚆✈️🚌',
+        },
       ],
     }
   },
@@ -1030,15 +1036,22 @@ export default {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .monitoring-content {
     padding: 2.5rem;
     gap: 2.5rem;
-    max-width: 700px;
+    max-width: 800px;
   }
 
   .type-buttons {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .type-buttons {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
